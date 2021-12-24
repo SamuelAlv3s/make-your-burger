@@ -3,8 +3,8 @@
 <p align="center">
    <img src="./public/img/logo.png" width="200"/>
 </p>
-[![Author](https://img.shields.io/badge/author-SamuelAlv3s-D54F44?style=flat-square)](https://github.com/SamuelAlv3s)
-[![Languages](https://img.shields.io/github/languages/count/SamuelAlv3s/make-your-burger?color=%23D54F44&style=flat-square)](#)
+
+> Projeto de um site para fazer pedidos de lanches e gerenciar pedidos, para fins de estudo do Vue.js
 
 ## Project setup
 
