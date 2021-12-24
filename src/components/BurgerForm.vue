@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Message :msg="msg" v-show="msg" />
     <form id="burger-form" @submit="createBurger($event)">
       <div class="input-container">
         <label for="name">Nome do Cliente</label>
@@ -57,8 +58,12 @@
   </div>
 </template>
 <script>
+import Message from "./Message.vue";
 export default {
   name: "BurgerForm",
+  components: {
+    Message,
+  },
   data() {
     return {
       breads: null,
@@ -103,6 +108,10 @@ export default {
 
       const res = await req.json();
       console.log(res);
+
+      this.msg = `Pedido N° ${res.id} Realizado com Sucesso!`;
+
+      setTimeout(() => (this.msg = null), 3000);
 
       this.name = "";
       this.bread = "";
