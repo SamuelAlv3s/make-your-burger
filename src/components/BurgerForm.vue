@@ -15,7 +15,7 @@
       <div class="input-container">
         <label for="bread">Escolha o pão:</label>
         <select name="bread" id="bread" v-model="bread">
-          <option value="">Selecione o seu pão</option>
+          <option value="" selected>Selecione o seu pão</option>
           <option v-for="bread in breads" :key="bread.id" :value="bread.tipo">
             {{ bread.tipo }}
           </option>
@@ -25,7 +25,7 @@
       <div class="input-container">
         <label for="meat">Escolha a carne:</label>
         <select name="meat" id="meat" v-model="meat">
-          <option value="">Selecionea o tipo de carne</option>
+          <option value="" selected>Selecionea o tipo de carne</option>
           <option v-for="meat in meats" :key="meat.id" :value="meat.tipo">
             {{ meat.tipo }}
           </option>
@@ -70,8 +70,8 @@ export default {
       meats: null,
       optionalsData: null,
       name: null,
-      bread: null,
-      meat: null,
+      bread: "",
+      meat: "",
       optionals: [],
       status: "Solicitado",
       msg: null,
@@ -91,10 +91,10 @@ export default {
       e.preventDefault();
 
       const data = {
-        name: this.name,
-        bread: this.bread,
-        meat: this.meat,
-        optionals: Array.from(this.optionals),
+        nome: this.name,
+        pao: this.bread,
+        carne: this.meat,
+        opcionais: Array.from(this.optionals),
         status: "Solicitado",
       };
 
