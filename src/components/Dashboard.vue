@@ -1,4 +1,5 @@
 <template>
+  <Message :msg="msg" v-show="msg" />
   <div id="burger-table">
     <div>
       <div id="burger-table-heading">
@@ -28,10 +29,24 @@
             </ul>
           </div>
           <div>
-            <select name="status" class="status">
+            <select
+              name="status"
+              class="status"
+              @change="updateBurger($event, burger.id)"
+            >
               <option value="">Selecione</option>
+              <option
+                v-for="s in status"
+                :key="s.id"
+                :value="s.tipo"
+                :selected="burger.status === s.tipo"
+              >
+                {{ s.tipo }}
+              </option>
             </select>
-            <button class="delete-btn">Cancelar</button>
+            <button class="delete-btn" @click="deleteBurger(burger.id)">
+              Cancelar
+            </button>
           </div>
         </div>
       </div>
@@ -39,6 +54,7 @@
   </div>
 </template>
 <script>
+import Message from "./Message.vue";
 export default {
   name: "Dashboard",
   data() {
@@ -46,7 +62,11 @@ export default {
       burgers: null,
       burger_id: null,
       status: [],
+      msg: "",
     };
+  },
+  components: {
+    Message,
   },
   methods: {
     async getOrders() {
@@ -56,6 +76,51 @@ export default {
       console.log(data);
 
       this.burgers = data;
+
+      this.getStatus();
+    },
+    async getStatus() {
+      const req = await fetch("http://localhost:3000/status");
+      const data = await req.json();
+
+      console.log(data);
+
+      this.status = data;
+    },
+    async deleteBurger(burgerId) {
+      const req = await fetch(`http://localhost:3000/burgers/${burgerId}`, {
+        method: "DELETE",
+      });
+      const res = await req.json();
+
+      console.log(res);
+
+      this.msg = "Pedido Deletado";
+
+      setTimeout(() => (this.msg = null), 3000);
+
+      this.getOrders();
+    },
+    async updateBurger(e, burgerId) {
+      const option = e.target.value;
+
+      const dataJson = JSON.stringify({ status: option });
+
+      const req = await fetch(`http://localhost:3000/burgers/${burgerId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+
+      const res = await req.json();
+
+      console.log(res);
+
+      this.msg = "Pedido Atualizado";
+
+      setTimeout(() => (this.msg = null), 3000);
+
+      this.getStatus();
     },
   },
   mounted() {

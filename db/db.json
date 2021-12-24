@@ -82,39 +82,36 @@
       "nome": "Matheus Battisti",
       "carne": "Picanha",
       "pao": "Italiano Branco",
-      "opcionais": ["Bacon", "Salame", "Cebola roxa"],
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cebola roxa"
+      ],
       "status": "Finalizado",
       "id": 1
-    },
-    {
-      "nome": "João Coelho",
-      "carne": "Maminha",
-      "pao": "3 Queijos",
-      "opcionais": ["Salame", "Cebola roxa"],
-      "status": "Solicitado",
-      "id": 4
     },
     {
       "nome": "Samuel Alves Lopes",
       "pao": "Italiano Branco",
       "carne": "Maminha",
-      "opcionais": ["Bacon", "Cheddar", "Tomate", "Cebola roxa"],
-      "status": "Solicitado",
+      "opcionais": [
+        "Bacon",
+        "Cheddar",
+        "Tomate",
+        "Cebola roxa"
+      ],
+      "status": "Em produção",
       "id": 5
-    },
-    {
-      "nome": "JV",
-      "pao": "3 Queijos",
-      "carne": "Maminha",
-      "opcionais": ["Bacon", "Salame", "Pepino"],
-      "status": "Solicitado",
-      "id": 6
     },
     {
       "nome": "Dm",
       "pao": "Italiano Branco",
       "carne": "Alcatra",
-      "opcionais": ["Cheddar", "Tomate", "Cebola roxa"],
+      "opcionais": [
+        "Cheddar",
+        "Tomate",
+        "Cebola roxa"
+      ],
       "status": "Solicitado",
       "id": 7
     },
@@ -122,7 +119,11 @@
       "nome": "ALo",
       "pao": "Italiano Branco",
       "carne": "Maminha",
-      "opcionais": ["Tomate", "Cheddar", "Cebola roxa"],
+      "opcionais": [
+        "Tomate",
+        "Cheddar",
+        "Cebola roxa"
+      ],
       "status": "Solicitado",
       "id": 8
     }
